@@ -1,7 +1,9 @@
 package gardenshop;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -49,7 +51,18 @@ public class ManageData {
 	}
 	
 	public static void saveProduct(Product product, int quantity) {
-		
+		try {
+			File stockFile = new File("./gardenshop/txtfiles/stock.txt");
+			if(!stockFile.exists()) {
+				stockFile.createNewFile();
+				System.out.println("New Stock File created");
+			}
+			FileWriter writting = new FileWriter(stockFile, true);
+			writting.write(product.toString() + " Quantity =" + quantity);
+			writting.close();
+		} catch(IOException e) {
+			System.out.println("There has been an error" + e.getMessage());
+		}
 	}
 	
 	public static void saveTicket(Ticket ticket) {
