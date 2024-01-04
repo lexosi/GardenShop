@@ -116,6 +116,7 @@ public class Shop {
 			product = new Decoration(ProdType.DECORATION, name, price, material);
 			setProductsStock(product, quantity);
 			ManageData.saveProduct(product, quantity);
+			break;
 		default:
 			System.out.println("Please, enter a valid number between 1 and 3");
 		}
