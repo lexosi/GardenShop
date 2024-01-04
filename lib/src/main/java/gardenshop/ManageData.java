@@ -18,7 +18,7 @@ public class ManageData {
 	public static List<Shop> loadData() {
 		List<Shop> shops = null;
 		try {
-			FileInputStream fis = new FileInputStream("shops.txt");
+			FileInputStream fis = new FileInputStream("./gardenshop/txtfiles/shops.txt");
 			ObjectInputStream ois = new ObjectInputStream(fis);
 
 			shops = (List<Shop>) ois.readObject();
@@ -37,7 +37,7 @@ public class ManageData {
 	/* SAVE DATA */
 	public static void saveData(List<Shop> shops) {
 		try {
-			FileOutputStream fos = new FileOutputStream("shops.txt");
+			FileOutputStream fos = new FileOutputStream("./gardenshop/txtfiles/shops.txt");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 
 			oos.writeObject(shops);
@@ -49,9 +49,6 @@ public class ManageData {
 		}
 	}
 	
-	public static void saveGardenShop(Shop shop) {
-		
-	}
 	
 	public static void saveProduct(Product product, int quantity) {
 		try {
@@ -61,7 +58,7 @@ public class ManageData {
 				System.out.println("New Stock File created");
 			}
 			FileWriter writting = new FileWriter(stockFile, true);
-			writting.write(product.toString() + " Quantity =" + quantity);
+			writting.write(product.toString() + " Quantity = " + quantity);
 			writting.close();
 		} catch(IOException e) {
 			System.out.println("There has been an error" + e.getMessage());
@@ -83,6 +80,32 @@ public class ManageData {
 		}
 	}
 	
+	/* MODIFIY DATA */
+	public static void modifyProduct(Product product, int newQty, int quantity) {
+		String newProdLine = product.toString() + " Quantity = " + newQty;
+		
+		try {
+			File stockFile = new File("./gardenshop/txtfiles/stock.txt");
+			if (stockFile.exists()) {
+				List<String> out = new ArrayList<>();
+				List<String> lines = Files.readAllLines(stockFile.toPath(), StandardCharsets.UTF_8);
+
+				for (String line : lines) {
+					if (!line.contains(product.toString() + " Quantity = " + quantity)) {
+						out.add(line);
+					} else {
+						out.add(newProdLine);
+					}
+				}
+
+				Files.write(stockFile.toPath(), out, StandardCharsets.UTF_8);
+				System.out.println("Product removed from Stock File");
+			}
+		} catch (IOException e) {
+			System.out.println("There has been an error" + e.getMessage());
+		}
+	}
+	
 	/* REMOVE DATA */
 	public static void deleteProduct(Product product, int quantity) {
 		try {
@@ -92,7 +115,7 @@ public class ManageData {
 				List<String> lines = Files.readAllLines(stockFile.toPath(), StandardCharsets.UTF_8);
 
 				for (String line : lines) {
-					if (!line.contains(product.toString() + " Quantity =" + quantity)) {
+					if (!line.contains(product.toString() + " Quantity = " + quantity)) {
 						out.add(line);
 					}
 				}

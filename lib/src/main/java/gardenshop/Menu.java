@@ -24,7 +24,6 @@ public class Menu {
 		if(foundShop == null) {
 			shop = new Shop(name);
 			shops.add(shop);
-			ManageData.saveGardenShop(shop);
 			System.out.println("Garden Shop create successfully");
 		} else {
 			System.out.println("Your Garden Shop has already been registered");
