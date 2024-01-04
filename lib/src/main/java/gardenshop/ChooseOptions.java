@@ -15,6 +15,7 @@ public class ChooseOptions {
 
 				if(choice >= 1 && choice <= 7){
 					color = colours[choice -1];
+					quit = true;
 				} else {
 					System.out.println("Enter a valid number between 1 and 7");
 				}
@@ -50,6 +51,7 @@ public class ChooseOptions {
 
 				if(materialsOption >= 1 && materialsOption <= 2){
 					material = materials[materialsOption -1];
+					quit = true;
 				} else {
 					System.out.println("Enter a valid number between 1 and 2");
 				}

@@ -16,7 +16,8 @@ public class Menu {
 	public void startApp() {
 		// 0. Create Garden Shop
 		Shop shop = null;
-		String name, foundShop;
+		Shop foundShop;
+		String name;
 		
 		name = Input_sc.enterStr("Enter the name of your Garden Shop to register it");
 		foundShop = Find.findShop(shops, name);

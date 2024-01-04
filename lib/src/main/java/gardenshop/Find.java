@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Find {
 
-	public static String findShop(List<Shop> shops, String name) {
+	public static Shop findShop(List<Shop> shops, String name) {
 		Shop foundShop;
 		
 		foundShop = shops.stream()
@@ -12,7 +12,7 @@ public class Find {
 				.findFirst()
 				.orElse(null);
 		
-		return foundShop.getName();
+		return foundShop;
 	}
 	
 	public static Product findProdById(Shop shop, int prodId) {
