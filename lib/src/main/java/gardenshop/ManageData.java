@@ -1,14 +1,13 @@
 package gardenshop;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,24 +15,19 @@ public class ManageData {
 
 	/* LOAD DATA */
 	public static List<Shop> loadData() {
-		List<Shop> shops = null;
-		try {
-			FileInputStream fis = new FileInputStream("./gardenshop/txtfiles/shops.txt");
-			ObjectInputStream ois = new ObjectInputStream(fis);
-
-			shops = (List<Shop>) ois.readObject();
-
-			ois.close();
-			fis.close();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		} catch (ClassNotFoundException c) {
-			System.out.println("Class not found");
-			c.printStackTrace();
-		}
-		return shops;
-	}
-
+        List<Shop> shops = new ArrayList<>();
+        try {
+            List<String> lines = Files.readAllLines(Paths.get("./gardenshop/txtfiles/shops.txt"),
+                    StandardCharsets.UTF_8);
+            for (String line : lines) {
+                shops.add(new Shop(line));
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        return shops;
+    }
+	
 	/* SAVE DATA */
 	public static void saveData(List<Shop> shops) {
 		try {
