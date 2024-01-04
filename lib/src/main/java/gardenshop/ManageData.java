@@ -7,8 +7,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
 
-public class DataInit {
+public class ManageData {
 
+	/* LOAD DATA */
 	public static List<Shop> loadData() {
 		List<Shop> shops = null;
 		try {
@@ -28,6 +29,7 @@ public class DataInit {
 		return shops;
 	}
 
+	/* SAVE DATA */
 	public static void saveData(List<Shop> shops) {
 		try {
 			FileOutputStream fos = new FileOutputStream("shops.txt");
@@ -40,5 +42,22 @@ public class DataInit {
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		}
+	}
+	
+	public static void saveGardenShop(Shop shop) {
+		
+	}
+	
+	public static void saveProduct(Product product, int quantity) {
+		
+	}
+	
+	public static void saveTicket(Ticket ticket) {
+		
+	}
+	
+	/* REMOVE DATA */
+	public static void deleteProduct(Product product, int quantity) {
+		
 	}
 }
