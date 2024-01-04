@@ -9,7 +9,8 @@ import java.util.List;
 
 public class DataInit {
 
-	public static void loadData(List<Shop> shops) {
+	public static List<Shop> loadData() {
+		List<Shop> shops = null;
 		try {
 			FileInputStream fis = new FileInputStream("shops.txt");
 			ObjectInputStream ois = new ObjectInputStream(fis);
@@ -20,12 +21,11 @@ public class DataInit {
 			fis.close();
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
-			return;
 		} catch (ClassNotFoundException c) {
 			System.out.println("Class not found");
 			c.printStackTrace();
-			return;
 		}
+		return shops;
 	}
 
 	public static void saveData(List<Shop> shops) {

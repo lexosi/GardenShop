@@ -8,7 +8,7 @@ public class Menu {
 	static List<Shop> shops = new ArrayList<Shop>();
 
 	public Menu() {
-//		DataInit.loadData(shops);
+		shops = DataInit.loadData();
 	}
 
 	public void startApp() {
