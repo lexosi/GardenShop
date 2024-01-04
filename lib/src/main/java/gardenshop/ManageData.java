@@ -7,6 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ManageData {
@@ -82,6 +85,23 @@ public class ManageData {
 	
 	/* REMOVE DATA */
 	public static void deleteProduct(Product product, int quantity) {
-		
+		try {
+			File stockFile = new File("./gardenshop/txtfiles/stock.txt");
+			if (stockFile.exists()) {
+				List<String> out = new ArrayList<>();
+				List<String> lines = Files.readAllLines(stockFile.toPath(), StandardCharsets.UTF_8);
+
+				for (String line : lines) {
+					if (!line.contains(product.toString() + " Quantity =" + quantity)) {
+						out.add(line);
+					}
+				}
+
+				Files.write(stockFile.toPath(), out, StandardCharsets.UTF_8);
+				System.out.println("Product removed from Stock File");
+			}
+		} catch (IOException e) {
+			System.out.println("There has been an error" + e.getMessage());
+		}
 	}
 }
