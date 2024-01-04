@@ -58,11 +58,6 @@ public class Shop {
 		this.ticketsHistory.add(ticket);
 	}
 
-	// Update quantity
-	public void updateStockQty(int quantity) {
-		//get qty - quantity 
-		// set qty
-	}
 
 	//Methods to get keys and values of the HashMap productsStock
 		//Get keys (Product)
@@ -78,6 +73,7 @@ public class Shop {
 		return findValues;
 	}
 
+	
 	// Stock Methods	
 	public void addProduct() {
 		Product product = null;
@@ -103,6 +99,7 @@ public class Shop {
 			
 			product = new Tree(ProdType.TREE, name, price, height);
 			setProductsStock(product, quantity);
+			ManageData.saveProduct(product, quantity);
 			break;
 		case 2:
 			color = ChooseOptions.chooseColour();
@@ -110,6 +107,7 @@ public class Shop {
 			
 			product = new Flower(ProdType.FLOWER, name, price, colour);
 			setProductsStock(product, quantity);
+			ManageData.saveProduct(product, quantity);
 			break;
 		case 3:
 			materials = ChooseOptions.chooseMaterial();
@@ -117,13 +115,18 @@ public class Shop {
 			
 			product = new Decoration(ProdType.DECORATION, name, price, material);
 			setProductsStock(product, quantity);
+			ManageData.saveProduct(product, quantity);
+		default:
+			System.out.println("Please, enter a valid number between 1 and 3");
 		}
 		System.out.println("Product added to stock successfully");
 	}
 	
+	
 	public void removeProduct(Product product, int quantity) {
 		if(productsStock.containsKey(product)) {
 			productsStock.remove(product, quantity);
+			ManageData.deleteProduct(product, quantity);
 			System.out.println("Product removed from stock successfully");
 		}
 	}
@@ -154,6 +157,7 @@ public class Shop {
 		return ticket;
 	}
 	
+	// Own Methods
 	@Override
 	public String toString() {
 		return "Shop [shopId=" + this.shopId + ", name=" + this.name + "]";
