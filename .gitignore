@@ -24,9 +24,6 @@ mvnw.cmd
 build/
 .gradle/
 
-# Carpeta y archivos de dependencias
-lib/
-
 # Carpeta y archivos de registros y respaldo
 log/
 backup/
