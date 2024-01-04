@@ -66,7 +66,18 @@ public class ManageData {
 	}
 	
 	public static void saveTicket(Ticket ticket) {
-		
+		try {
+			File ticketFile = new File("./gardenshop/txtfiles/tickets.txt");
+			if (!ticketFile.exists()) {
+				ticketFile.createNewFile();
+				System.out.println("New Ticket File created");
+			}
+			FileWriter writting = new FileWriter(ticketFile, true);
+			writting.write(ticket.toString());
+			writting.close();
+		} catch (IOException e) {
+			System.out.println("There has been an error" + e.getMessage());
+		}
 	}
 	
 	/* REMOVE DATA */
