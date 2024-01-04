@@ -155,7 +155,7 @@ public class MenuMngmt {
 			idProduct = Input_sc.enterInt("Enter the Id of the product");
 			product = Find.findProdById(shop, idProduct);
 			
-			shop.stockMngmt(ticket, product);
+			ticket = shop.stockMngmt(ticket, product);
 			
 			continueAddProd = Input_sc.enterStr("Would you like to add another product? Type y/n");
 			if(continueAddProd.equalsIgnoreCase("n")) {
@@ -169,7 +169,7 @@ public class MenuMngmt {
 				+ ticket.toString());
 		
 		shop.setTicketsHistory(ticket);
-		
+		//saveTxtFile(ticket);
 	}
 	
 	// 8. Show old sale's tickets

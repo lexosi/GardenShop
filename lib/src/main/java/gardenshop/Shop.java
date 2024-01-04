@@ -129,7 +129,7 @@ public class Shop {
 	}
 	
 	
-	public void stockMngmt(Ticket ticket, Product product) {
+	public Ticket stockMngmt(Ticket ticket, Product product) {
 		int stockQty, quantity;
 		
 		if(productsStock.containsKey(product)) {
@@ -145,13 +145,13 @@ public class Shop {
 				ticket.addProd(product, quantity);
 			} else if(stockQty < quantity) {
 				System.out.println("There's no enough stock of this product");
-				//show how many stock and ask?
 			} else {
 				System.out.println("Sorry, there's no stock of this product");
 			}
 		} else {
 			System.out.println("Sorry, we can't find this product");
 		}
+		return ticket;
 	}
 	
 	@Override
