@@ -7,8 +7,6 @@ import java.util.Map;
 import gardenshop.enums.ProdType;
 
 
-
-
 public class MenuMngmt {
 
 	// 1. Add Tree, Flower or Decoration to the shop's stock
@@ -133,8 +131,6 @@ public class MenuMngmt {
 		double totalAmountSales = 0;
 		
 		totalAmountSales = shop.getTicketsHistory().stream().mapToDouble(Ticket::getTotalSaleAmount).sum();
-//		totalAmountSales = shop.findKeys().stream().mapToDouble(Product::getPrice).sum();
-
 		System.out.println("The Total Amount of the " + shop.getName() + " is " + totalAmountSales + "€");
 	}
 	

@@ -5,7 +5,7 @@ public class ChooseOptions {
 	// Choose Flower colour
 		public static String chooseColour() {
 
-			String[] colours = {"Red", "Blue", "Green", "Pink", "Yellow", "Orange", "Purple"};
+			String[] colours = {"Red", "Blue", "White", "Pink", "Yellow", "Orange", "Violet"};
 
 			boolean quit = false;
 			String color = "";
@@ -29,11 +29,11 @@ public class ChooseOptions {
 			byte coloursOption = Input_sc.enterByte("Choose the flower's colour:\n"
 					+ "1. Red\n"
 					+ "2. Blue\n"
-					+ "3. Green\n"
+					+ "3. White\n"
 					+ "4. Pink\n"
 					+ "5. Yellow\n"
 					+ "6. Orange\n"
-					+ "7. Purple");
+					+ "7. Violet");
 
 			return coloursOption;
 		}

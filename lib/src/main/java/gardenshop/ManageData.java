@@ -52,7 +52,7 @@ public class ManageData {
 				System.out.println("New Stock File created");
 			}
 			FileWriter writting = new FileWriter(stockFile, true);
-			writting.write(product.toString() + " Quantity = " + quantity);
+			writting.write(product.toString() + " Quantity = " + quantity + "\n");
 			writting.close();
 			System.out.println("Product saved successfully");
 		} catch(IOException e) {
@@ -68,7 +68,7 @@ public class ManageData {
 				System.out.println("New Ticket File created");
 			}
 			FileWriter writting = new FileWriter(ticketFile, true);
-			writting.write(ticket.toString());
+			writting.write(ticket.toString() + "\n");
 			writting.close();
 		} catch (IOException e) {
 			System.out.println("There has been an error" + e.getMessage());
