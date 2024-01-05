@@ -34,4 +34,10 @@ Quantity	Description	Price/Unit	Total
 , Quantity 1 Product fd Price/unit 1,00 Total 1,00 
 ]
 Subtotal:			2.0€
-Total price(with 21% tax)	2.42€
+Total price(with 21% tax)	2.42€Sale num: 0
+Quantity	Description	Price/Unit	Total
+[Quantity 12 Product fsdfds Price/unit 321,00 Total 3852,00 
+, Quantity 2 Product fds Price/unit 332,00 Total 664,00 
+]
+Subtotal:			4516.0€
+Total price(with 21% tax)	5464.36€

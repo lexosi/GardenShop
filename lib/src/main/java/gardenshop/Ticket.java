@@ -60,7 +60,6 @@ public class Ticket {
 	public double calculateTotalAmount() {
 		double subtotal = 0;
 		subtotal = prodLines.stream().mapToDouble(TcktProdLine::getTotalPriceProd).sum();
-//		subtotal = prodLines.stream().mapToDouble(TcktProdLine::getPriceXunit).sum();
 		setTotalAmount(subtotal);
 		
 		calculateTotalAmountWTax();

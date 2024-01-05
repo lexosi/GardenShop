@@ -2,13 +2,13 @@ package gardenshop.enums;
 
 public enum Colour {
 
-	WHITE("W"), 
-	YELLOW("Y"), 
 	RED("R"), 
+	BLUE("B"),
+	WHITE("W"),
+	PINK("P"),
+	YELLOW("Y"),
 	ORANGE("O"), 
-	VIOLET("V"), 
-	BLUE("B"), 
-	PINK("P");
+	VIOLET("V");
 	
 	private final String colour;
 	

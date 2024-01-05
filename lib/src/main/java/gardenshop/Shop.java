@@ -12,7 +12,6 @@ import gardenshop.enums.Material;
 import gardenshop.enums.ProdType;
 
 
-
 public class Shop {
 
 	private int shopId;
@@ -150,6 +149,7 @@ public class Shop {
 			} else if(stockQty == quantity) {
 				productsStock.remove(product, quantity);
 				ticket.addProd(product, quantity);
+				ManageData.deleteProduct(product, quantity);
 			} else if(stockQty < quantity) {
 				System.out.println("There's no enough stock of this product");
 			} else {
