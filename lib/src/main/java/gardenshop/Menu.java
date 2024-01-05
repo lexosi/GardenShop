@@ -42,7 +42,11 @@ public class Menu {
 		
 		do {
 			switch(showMenu()) {
-			case 0 -> quit = true;
+				case 0 -> {
+					quit = true;
+					System.out.println(
+							"Romina y Iván saber que sin arquitectura el ejercicio es fácil pero cuando se intenta poner DDD + Hexagonal es la muerte...");
+				}
 			case 1 -> MenuMngmt.addProductToStock(shop);
 			case 2 -> MenuMngmt.removeProductFromStock(shop);
 			case 3 -> MenuMngmt.showAllProdStock(shop);
