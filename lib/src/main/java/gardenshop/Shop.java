@@ -7,9 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import gardenshop.Decoration.Material;
-import gardenshop.Flower.Colour;
-import gardenshop.Product.ProdType;
+import gardenshop.enums.Colour;
+import gardenshop.enums.Material;
+import gardenshop.enums.ProdType;
+
+
 
 public class Shop {
 
