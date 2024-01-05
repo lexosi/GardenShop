@@ -1,9 +1,10 @@
 package gardenshop;
 
+import gardenshop.enums.Colour;
+import gardenshop.enums.ProdType;
 
 public class Flower extends Product {
 
-	public enum Colour { WHITE, YELLOW, RED, ORANGE, VIOLET };
 	private Colour colour;
 	
 	

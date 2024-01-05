@@ -1,8 +1,10 @@
 package gardenshop;
 
+import gardenshop.enums.Material;
+import gardenshop.enums.ProdType;
+
 public class Decoration extends Product {
 
-	public enum Material { WOOD, PLASTIC };
 	private Material material;
 	
 	

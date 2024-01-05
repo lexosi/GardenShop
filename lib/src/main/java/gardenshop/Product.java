@@ -1,11 +1,11 @@
 package gardenshop;
 
+import gardenshop.enums.ProdType;
 
 public abstract class Product {
 	
 	private int prodId;
 	private static int prodIdNext;
-	public enum ProdType {TREE, FLOWER, DECORATION };
 	private ProdType prodType;
 	private String name;
 	private double price;

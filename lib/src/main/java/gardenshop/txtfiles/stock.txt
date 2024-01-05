@@ -1,0 +1,1 @@
+Product [prodId=0, prodType=TREE, name=oak, price=32.0height=12.0] Quantity = 3Product [prodId=0, prodType=TREE, name=oak, price=32.0height=12.0] Quantity = 2

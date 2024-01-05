@@ -1,5 +1,7 @@
 package gardenshop;
 
+import gardenshop.enums.ProdType;
+
 public class Tree extends Product {
 
 private double height;
