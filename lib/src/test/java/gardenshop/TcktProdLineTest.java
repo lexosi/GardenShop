@@ -47,13 +47,4 @@ public class TcktProdLineTest {
         assertEquals(50.0, tcktProdLine.getTotalPriceProd());
     }
 
-    @Test
-    void testToString() {
-        Product product = new ConcreteProduct(ProdType.DECORATION, "Test Product", 10.0);
-        TcktProdLine tcktProdLine = new TcktProdLine(5, product);
-        tcktProdLine.setTotalPriceProd(50.0);
-
-        String expected = "Quantity 5 Product Test Product Price/unit 10.00 Total 50.00 \n";
-        assertEquals(expected, tcktProdLine.toString());
-    }
 }

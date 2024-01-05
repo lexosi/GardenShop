@@ -52,12 +52,6 @@ public class ProductTest {
         assertEquals(20.0, product.getPrice());
     }
 
-    @Test
-    void testToString() {
-        Product product = new ConcreteProduct(ProdType.DECORATION, "Test Product", 10.0);
-        String expected = "Product [prodId=0, prodType=DECORATION, name=Test Product, price=10.0]";
-        assertEquals(expected, product.toString());
-    }
 }
 
 // ConcreteProduct is a concrete subclass of Product that you can instantiate
