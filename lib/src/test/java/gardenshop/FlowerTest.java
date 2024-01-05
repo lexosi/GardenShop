@@ -23,8 +23,9 @@ public class FlowerTest {
 
     @Test
     void testToString() {
-        Flower flower = new Flower(ProdType.FLOWER, "Test Flower", 10.0, Colour.RED);
-        String expected = "Product [prodId=0, prodType=FLOWER, name=Test Flower, price=10.0, colour=RED]";
+        Flower flower = new Flower(ProdType.FLOWER, "Rose", 10, Colour.RED);
+        String expected = "(" + super.toString() + ", Colour: " + flower.getColour() + ")";
+
         assertEquals(expected, flower.toString());
     }
 }

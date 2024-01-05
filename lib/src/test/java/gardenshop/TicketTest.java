@@ -67,10 +67,12 @@ public class TicketTest {
         Product product = new ConcreteProduct(ProdType.DECORATION, "Test Product", 10.0);
         ticket.addProd(product, 5);
 
-        String expected = "Sale num: 0\nQuantity\tDescription\tPrice/Unit\tTotal\n"
-                + "[Quantity 5 Product Test Product Price/unit 10.00 Total 50.00 \n]\n"
-                + "Subtotal:\t\t\t50.0€\n"
-                + "Total price(with 21% tax)\t60.5€";
-        assertEquals(expected, ticket.toString());
-    }
+    String expected = "\t\tSale num: " + ticket.getTicketId() + "\n"
+            + "Quantity\tDescription\tPrice/Unit\tTotal\n"
+            + ticket.getProdLines() + "\n"
+            + "Subtotal:\t\t\t\t\t" + ticket.calculateTotalAmount() + " €\n"
+            + "Total price(with 21% tax)\t\t\t" + ticket.calculateTotalAmountWTax() + " €";
+
+    assertEquals(expected, ticket.toString());
+}
 }

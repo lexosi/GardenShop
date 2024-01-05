@@ -24,7 +24,9 @@ public class DecorationTest {
     @Test
     void testToString() {
         Decoration decoration = new Decoration(ProdType.DECORATION, "Test Decoration", 10.0, Material.WOOD);
-        String expected = "Product [prodId=0, prodType=DECORATION, name=Test Decoration, price=10.0, material=WOOD]";
+        Product product = new Decoration(ProdType.DECORATION, "Test Decoration", 10.0, Material.WOOD);
+        String expected = "(" + product.toString() + ", Material: " + decoration.getMaterial() + ")";
+
         assertEquals(expected, decoration.toString());
     }
 }

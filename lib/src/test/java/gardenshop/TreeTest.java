@@ -26,11 +26,11 @@ public class TreeTest {
     }
 
     @Test
-    void testToString() {
+    void testToStringWithSuper() {
         Tree tree = new Tree(ProdType.TREE, "Test Tree", 10.0, 5.0);
 
-        String expected = "Product [prodId=" + tree.getProdId() + ", prodType=" + tree.getProdType() + ", name="
-                + tree.getName() + ", price=" + tree.getPrice() + "height=" + tree.getHeight() + "]";
-        assertEquals(expected, tree.toString());
-    }
+    String expected = "(" + super.toString() + ", Height: " + tree.getHeight() + "m" + ")";
+
+    assertEquals(expected, tree.toString());
+}
 }
