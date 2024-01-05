@@ -91,7 +91,7 @@ public class MenuMngmt {
 		Ticket ticket = new Ticket();
 		Product product;
 		int idProduct;
-		String continueAddProd;
+		Character continueAddProd;
 		boolean saleFinished = false;
 		
 		while(!saleFinished) {
@@ -100,10 +100,12 @@ public class MenuMngmt {
 			
 			ticket = shop.stockMngmt(ticket, product);
 			
-			continueAddProd = Input_sc.enterStr("Would you like to add another product? Type y/n");
-			if(continueAddProd.equalsIgnoreCase("n")) {
+			continueAddProd = Input_sc.readChar("Would you like to add another product? Type y/n");
+			if(continueAddProd == 'n') {
 				saleFinished = true;
 				ticket.calculateTotalAmount();
+			} else {
+				saleFinished = false;
 			}
 		}
 		
