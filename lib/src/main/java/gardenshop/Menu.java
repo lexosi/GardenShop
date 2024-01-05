@@ -9,7 +9,7 @@ public class Menu {
 
 	
 	public Menu() {
-		shops = ManageData.loadData();
+//		shops = ManageData.loadData();
 	}
 
 	
@@ -25,12 +25,12 @@ public class Menu {
 		if(foundShop == null) {
 			shop = new Shop(name);
 			shops.add(shop);
-			System.out.println("Garden Shop create successfully");
+			System.out.println("Garden Shop create successfully\n");
 		} else {
-			System.out.println("Your Garden Shop has already been registered");
+			System.out.println("Your Garden Shop has already been registered\n");
 		}
 		
-		System.out.println("Welcome to the " + name + " Garden Shop App Menu");
+		System.out.println("Welcome to the " + name + " Shop App Menu");
 		startMenu(shop);
 	}
 
@@ -57,7 +57,8 @@ public class Menu {
 	
 	public static byte showMenu() {
 		
-		byte option = Input_sc.enterByte("GARDEN SHOP APP MENU\n"
+		byte option = Input_sc.enterByte("\nGARDEN SHOP APP MENU\n"
+				+ "----------------------------------------------------------\n"
 				+ "Choose one of the following options (enter its number)\n"
 				+ "1. Add Tree, Flower or Decoration to the shop's stock\n"
 				+ "2. Remove Tree, Flower or Decoration from the shop's stock\n"

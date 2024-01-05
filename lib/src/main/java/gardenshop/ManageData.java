@@ -46,7 +46,7 @@ public class ManageData {
 	
 	public static void saveProduct(Product product, int quantity) {
 		try {
-			File stockFile = new File("txtfiles/stock.txt");
+			File stockFile = new File("./src/main/java/gardenshop/txtfiles/stock.txt");
 			if(!stockFile.exists()) {
 				stockFile.createNewFile();
 				System.out.println("New Stock File created");
@@ -54,6 +54,7 @@ public class ManageData {
 			FileWriter writting = new FileWriter(stockFile, true);
 			writting.write(product.toString() + " Quantity = " + quantity);
 			writting.close();
+			System.out.println("Product saved successfully");
 		} catch(IOException e) {
 			System.out.println("There has been an error " + e.getMessage());
 		}
