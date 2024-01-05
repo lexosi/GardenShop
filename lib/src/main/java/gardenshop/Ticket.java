@@ -51,15 +51,16 @@ public class Ticket {
 	public void addProd(Product product, int quantity) {		
 		TcktProdLine tcktProdLine = new TcktProdLine(quantity, product);
 		setProdLines(tcktProdLine);
-		
-//		calculateTotalAmount();
+		tcktProdLine.setProdQtyTicket(quantity);
+		tcktProdLine.setProdTicket(product);
+		tcktProdLine.setTotalPriceProd(product.getPrice() * quantity);
 	}
 	
 	
 	public double calculateTotalAmount() {
 		double subtotal = 0;
-		
-		subtotal = prodLines.stream().mapToDouble(TcktProdLine::getPriceXunit).sum();
+		subtotal = prodLines.stream().mapToDouble(TcktProdLine::getTotalPriceProd).sum();
+//		subtotal = prodLines.stream().mapToDouble(TcktProdLine::getPriceXunit).sum();
 		setTotalAmount(subtotal);
 		
 		calculateTotalAmountWTax();

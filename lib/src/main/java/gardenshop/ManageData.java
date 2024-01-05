@@ -17,7 +17,7 @@ public class ManageData {
 	public static List<Shop> loadData() {
         List<Shop> shops = new ArrayList<>();
         try {
-            List<String> lines = Files.readAllLines(Paths.get("./gardenshop/txtfiles/shops.txt"),
+            List<String> lines = Files.readAllLines(Paths.get("./src/main/java/gardenshop/txtfiles/shops.txt"),
                     StandardCharsets.UTF_8);
             for (String line : lines) {
                 shops.add(new Shop(line));
@@ -31,7 +31,7 @@ public class ManageData {
 	/* SAVE DATA */
 	public static void saveData(List<Shop> shops) {
 		try {
-			FileOutputStream fos = new FileOutputStream("./gardenshop/txtfiles/shops.txt");
+			FileOutputStream fos = new FileOutputStream("./src/main/java/gardenshop/txtfiles/shops.txt");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 
 			oos.writeObject(shops);
@@ -62,7 +62,7 @@ public class ManageData {
 	
 	public static void saveTicket(Ticket ticket) {
 		try {
-			File ticketFile = new File("./gardenshop/txtfiles/tickets.txt");
+			File ticketFile = new File("./src/main/java/gardenshop/txtfiles/tickets.txt");
 			if (!ticketFile.exists()) {
 				ticketFile.createNewFile();
 				System.out.println("New Ticket File created");
@@ -80,7 +80,7 @@ public class ManageData {
 		String newProdLine = product.toString() + " Quantity = " + newQty;
 		
 		try {
-			File stockFile = new File("./gardenshop/txtfiles/stock.txt");
+			File stockFile = new File("./src/main/java/gardenshop/txtfiles/stock.txt");
 			if (stockFile.exists()) {
 				List<String> out = new ArrayList<>();
 				List<String> lines = Files.readAllLines(stockFile.toPath(), StandardCharsets.UTF_8);
@@ -104,7 +104,7 @@ public class ManageData {
 	/* REMOVE DATA */
 	public static void deleteProduct(Product product, int quantity) {
 		try {
-			File stockFile = new File("./gardenshop/txtfiles/stock.txt");
+			File stockFile = new File("./src/main/java/gardenshop/txtfiles/stock.txt");
 			if (stockFile.exists()) {
 				List<String> out = new ArrayList<>();
 				List<String> lines = Files.readAllLines(stockFile.toPath(), StandardCharsets.UTF_8);

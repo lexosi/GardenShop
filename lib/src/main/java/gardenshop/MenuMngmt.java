@@ -131,7 +131,9 @@ public class MenuMngmt {
 	// 8. Show total amount made from sales
 	public static void showTotalSalesAmount(Shop shop) {
 		double totalAmountSales = 0;
-		totalAmountSales = shop.findKeys().stream().mapToDouble(Product::getPrice).sum();
+		
+		totalAmountSales = shop.getTicketsHistory().stream().mapToDouble(Ticket::getTotalSaleAmount).sum();
+//		totalAmountSales = shop.findKeys().stream().mapToDouble(Product::getPrice).sum();
 
 		System.out.println("The Total Amount of the " + shop.getName() + " is " + totalAmountSales + "€");
 	}

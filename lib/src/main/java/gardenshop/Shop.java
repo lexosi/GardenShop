@@ -145,7 +145,7 @@ public class Shop {
 			if(stockQty > quantity) {
 				stockQty -= quantity;
 				productsStock.put(product, stockQty);
-				ticket.addProd(product, stockQty);
+				ticket.addProd(product, quantity);
 				ManageData.modifyProduct(product, stockQty, quantity);
 			} else if(stockQty == quantity) {
 				productsStock.remove(product, quantity);

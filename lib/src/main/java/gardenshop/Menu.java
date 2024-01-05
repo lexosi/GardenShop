@@ -9,7 +9,7 @@ public class Menu {
 
 	
 	public Menu() {
-//		shops = ManageData.loadData();
+		shops = ManageData.loadData();
 	}
 
 	
