@@ -81,21 +81,48 @@ public class Input_sc {
 		return dbl;
 	}
 
-	public static boolean readYesNo(String msgXuser) throws Exception {
-		String entry = "";
-		char character = ' ';
-		boolean value = false;
+//	public static boolean readYesNo(String msgXuser) throws Exception {
+//		String entry = "";
+//		char character = ' ';
+//		boolean value = false;
+//	
+//		System.out.println(msgXuser);
+//		entry = sc.nextLine();
+//		character = entry.charAt(0);
+//		if(character == 'y') {
+//			value = true;
+//		} else if(character == 'n') {
+//			value = false;
+//		} else {
+//			throw new Exception();
+//		}
+//		return value;
+//	}
+
 	
-		System.out.println(msgXuser);
-		entry = sc.nextLine();
-		character = entry.charAt(0);
-		if(character == 'y') {
-			value = true;
-		} else if(character == 'n') {
-			value = false;
-		} else {
-			throw new Exception();
-		}
+	public static char readChar(String msgXuser) {
+		String str = "";
+		boolean isChar = false;
+		char value = ' ';
+		
+		do {
+			System.out.println(msgXuser);
+			
+			try {
+				str = sc.nextLine();
+				value = str.charAt(0);
+				
+				if(Character.isDigit(value) || str.length() != 1) {
+					throw new Exception();
+				}
+				
+				isChar = true;
+			} catch(Exception e) {
+				System.err.println("Format error: Write a character only");
+			}
+			
+		} while(!isChar);
+		
 		return value;
 	}
 	
