@@ -1,5 +1,6 @@
 package gardenshop;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,12 +45,13 @@ public class MenuMngmt {
 					.filter(p -> p.getProdType() == ProdType.DECORATION)
 					.toList();
 
-			System.out.println("Tree Stock: " + treeStock);
-			System.out.println("Flower Stock: " + flowerStock);
-			System.out.println("Decoration Stock: " + decorationStock);
+			System.out.println(shop.getName() + " Stock Products:\n"
+					+ "Tree Stock:\n" + treeStock + "\n"
+					+ "Flower Stock:\n" + flowerStock + "\n"
+					+ "Decoration Stock:\n" + decorationStock);
 			
 		} else {
-			System.out.println("Your garden shop doesn't have any stock yet");
+			System.out.println("Your garden shop doesn't have any stock to print yet");
 		}
 	}
 	
@@ -62,7 +64,7 @@ public class MenuMngmt {
 			allStock = shop.getProductsStock();
 			
 			for(Map.Entry<Product, Integer> entry : allStock.entrySet()) {
-				System.out.println("Product: " + entry.getKey() + "Quantity: " + entry.getValue());
+				System.out.println(entry.getKey() + " -> Quantity: " + entry.getValue());
 			}
 			
 		} else {
@@ -77,7 +79,7 @@ public class MenuMngmt {
 		if(!shop.getProductsStock().isEmpty()) {
 			totalShopValue = shop.findKeys().stream().mapToDouble(Product::getPrice).sum();
 			shop.setStockValue(totalShopValue);
-			System.out.println("The total stock value of the shop is " + totalShopValue + "€");
+			System.out.println("The total stock value of the shop is " + totalShopValue + " €");
 		} else {
 			System.out.println("The shop doesn't have a stock yet");
 		}
@@ -85,42 +87,51 @@ public class MenuMngmt {
 	
 	// 6. Create sale's ticket with multiple objects	
 	public static void createTicket(Shop shop) {
-		System.out.println("To create the ticket you will need to enter the product id and the quantity desired.");
-		Ticket ticket = new Ticket();
-		Product product;
-		int idProduct;
-		Character continueAddProd;
-		boolean saleFinished = false;
 		
-		while(!saleFinished) {
-			idProduct = Input_sc.enterInt("Enter the Id of the product");
-			product = Find.findProdById(shop, idProduct);
+		if(!shop.getProductsStock().isEmpty()) {
 			
-			ticket = shop.stockMngmt(ticket, product);
+			System.out.println("To create the ticket you will need to enter the product id and the quantity desired.");
+			Ticket ticket = new Ticket();
+			Product product;
+			int idProduct;
+			Character continueAddProd;
+			boolean saleFinished = false;
 			
-			continueAddProd = Input_sc.readChar("Would you like to add another product? Type y/n");
-			if(continueAddProd == 'n') {
-				saleFinished = true;
-				ticket.calculateTotalAmount();
-			} else {
-				saleFinished = false;
+			while(!saleFinished) {
+				idProduct = Input_sc.enterInt("Enter the Id of the product");
+				product = Find.findProdById(shop, idProduct);
+				
+				ticket = shop.stockMngmt(ticket, product);
+				
+				continueAddProd = Input_sc.readChar("Would you like to add another product? Type y/n");
+				if(continueAddProd == 'n') {
+					saleFinished = true;
+					ticket.calculateTotalAmount();
+				} else {
+					saleFinished = false;
+				}
 			}
+			
+			System.out.println("Ticket created successfully\n"
+					+ "\t\tShop name: " + shop.getName() + "\n"
+					+ ticket.toString());
+			
+			shop.setTicketsHistory(ticket);
+			ManageData.saveTicket(ticket);
+		}else {
+			System.out.println("Before create a ticket you need to add some stock to the shop");
 		}
 		
-		System.out.println("Ticket created successfully\n"
-				+ "Shop name: " + shop.getName() + "\n"
-				+ ticket.toString());
-		
-		shop.setTicketsHistory(ticket);
-		ManageData.saveTicket(ticket);
 	}
 	
 	// 7. Show old sale's tickets
 	public static void showOldSalesTickets(Shop shop) {
 		
 		if(!shop.getTicketsHistory().isEmpty()) {
+			
 			System.out.println("Ticket history:");
 			shop.getTicketsHistory().forEach(System.out::println);
+			
 		} else {
 			System.out.println("There is no ticket in our database yet");
 		}
@@ -129,9 +140,17 @@ public class MenuMngmt {
 	// 8. Show total amount made from sales
 	public static void showTotalSalesAmount(Shop shop) {
 		double totalAmountSales = 0;
+		DecimalFormat df = new DecimalFormat("#.00");
 		
-		totalAmountSales = shop.getTicketsHistory().stream().mapToDouble(Ticket::getTotalSaleAmount).sum();
-		System.out.println("The Total Amount of the " + shop.getName() + " is " + totalAmountSales + "€");
+		if(!shop.getTicketsHistory().isEmpty()) {
+			
+			totalAmountSales = shop.getTicketsHistory().stream().mapToDouble(Ticket::getTotalSaleAmount).sum();
+			System.out.println("The Total Amount of the " + shop.getName() + " is " + df.format(totalAmountSales) + " €");
+			
+		} else {
+			System.out.println("Your total amount made from sales is 0, you have not made any sale yet");
+		}
+		
 	}
 	
 }

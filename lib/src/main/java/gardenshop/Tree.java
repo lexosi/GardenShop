@@ -23,7 +23,7 @@ private double height;
 
 	@Override
 	public String toString() {
-		return "Product [prodId=" + super.getProdId() + ", prodType=" + super.getProdType() + ", name=" + super.getName() + ", price=" + super.getPrice() + "height=" + height + "]";
+		return "(" + super.toString() + ", Height: " + this.height + "m" + ")";
 	}
 
 }

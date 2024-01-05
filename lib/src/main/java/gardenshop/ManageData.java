@@ -43,6 +43,21 @@ public class ManageData {
 		}
 	}
 	
+	public static void saveShop(List<Shop> shops, Shop shop) {
+		try {
+			File stockFile = new File("./src/main/java/gardenshop/txtfiles/shops.txt");
+			if(!stockFile.exists()) {
+				stockFile.createNewFile();
+				System.out.println("New Shops File created");
+			}
+			FileWriter writting = new FileWriter(stockFile, true);
+			writting.write(shop.toString() + "\n");
+			writting.close();
+			System.out.println("Shop saved successfully");
+		} catch(IOException e) {
+			System.out.println("There has been an error " + e.getMessage());
+		}
+	}
 	
 	public static void saveProduct(Product product, int quantity) {
 		try {

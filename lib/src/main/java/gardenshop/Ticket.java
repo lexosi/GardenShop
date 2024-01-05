@@ -79,11 +79,11 @@ public class Ticket {
 	
 	@Override
 	public String toString() {
-		return  "Sale num: " + this.ticketId + "\n"
+		return  "\t\tSale num: " + this.ticketId + "\n"
 				+ "Quantity\tDescription\tPrice/Unit\tTotal\n"
 				+ this.prodLines + "\n"
-				+ "Subtotal:\t\t\t" + this.calculateTotalAmount() + "€\n"
-				+ "Total price(with 21% tax)\t" + this.calculateTotalAmountWTax() + "€";
+				+ "Subtotal:\t\t\t\t\t" + this.calculateTotalAmount() + " €\n"
+				+ "Total price(with 21% tax)\t\t\t" + this.calculateTotalAmountWTax() + " €";
 	}
 	
 }
