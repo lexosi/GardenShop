@@ -19,15 +19,17 @@ public class Menu {
 		Shop foundShop;
 		String name;
 		
-		name = Input_sc.enterStr("Enter the name of your Garden Shop to register it");
+		name = Input_sc.enterStr("To use the Management Shop App you need to register your shop.\n"
+				+ "Please, enter the name of your Garden Shop to start the app:");
 		foundShop = Find.findShop(shops, name);
 		
 		if(foundShop == null) {
 			shop = new Shop(name);
 			shops.add(shop);
-			System.out.println("Garden Shop create successfully\n");
+			ManageData.saveShop(shops, shop);
+			System.out.println("Your Garden Shop has been registered successfully\n");
 		} else {
-			System.out.println("Your Garden Shop has already been registered\n");
+			System.out.println("Your Garden Shop has already been registered with us\n");
 		}
 		
 		System.out.println("Welcome to the " + name + " Shop App Menu");
@@ -59,7 +61,7 @@ public class Menu {
 		
 		byte option = Input_sc.enterByte("\nGARDEN SHOP APP MENU\n"
 				+ "----------------------------------------------------------\n"
-				+ "Choose one of the following options (enter its number)\n"
+				+ "Choose one of the following options (enter its number):\n"
 				+ "1. Add Tree, Flower or Decoration to the shop's stock\n"
 				+ "2. Remove Tree, Flower or Decoration from the shop's stock\n"
 				+ "3. Show the stock of all products\n"

@@ -81,25 +81,6 @@ public class Input_sc {
 		return dbl;
 	}
 
-//	public static boolean readYesNo(String msgXuser) throws Exception {
-//		String entry = "";
-//		char character = ' ';
-//		boolean value = false;
-//	
-//		System.out.println(msgXuser);
-//		entry = sc.nextLine();
-//		character = entry.charAt(0);
-//		if(character == 'y') {
-//			value = true;
-//		} else if(character == 'n') {
-//			value = false;
-//		} else {
-//			throw new Exception();
-//		}
-//		return value;
-//	}
-
-	
 	public static char readChar(String msgXuser) {
 		String str = "";
 		boolean isChar = false;

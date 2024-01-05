@@ -81,7 +81,7 @@ public class Shop {
 		int quantity = 0;
 		byte prodTypeOption;
 		double price, height;
-		String color, materials;
+		String name, color, materials;
 		Colour colour;
 		Material material;
 		
@@ -89,6 +89,7 @@ public class Shop {
 				+ "1. Tree\n"
 				+ "2. Flower\n"
 				+ "3. Decoration");
+		
 		
 		price = Input_sc.enterDouble("Enter the price of the product:");
 		name = Input_sc.enterStr("Enter the name of the product:");

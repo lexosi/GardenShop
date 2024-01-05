@@ -48,7 +48,7 @@ public class TcktProdLine {
 	
 	@Override
 	public String toString() {
-		return String.format("Quantity %d Product %s Price/unit %.2f Total %.2f %n", this.prodQtyTicket, this.prodTicket.getName(), this.prodTicket.getPrice(), this.totalPriceProd);
+		return "\n    " + this.prodQtyTicket + "\t\t" + this.prodTicket.getName() + "\t\t" + this.prodTicket.getPrice()+ "\t\t" + this.totalPriceProd;
 
 	}
 	

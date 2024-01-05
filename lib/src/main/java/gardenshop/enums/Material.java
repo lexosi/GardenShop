@@ -2,8 +2,8 @@ package gardenshop.enums;
 
 public enum Material {
 	
-	WOOD("W"),
-	PLASTIC("P");
+	WOOD("Wood"),
+	PLASTIC("Plastic");
 	
 	private final String material;
 	
