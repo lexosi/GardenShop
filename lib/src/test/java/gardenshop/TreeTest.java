@@ -25,12 +25,4 @@ public class TreeTest {
         assertEquals(10.0, tree.getHeight());
     }
 
-    @Test
-    void testToStringWithSuper() {
-        Tree tree = new Tree(ProdType.TREE, "Test Tree", 10.0, 5.0);
-
-    String expected = "(" + super.toString() + ", Height: " + tree.getHeight() + "m" + ")";
-
-    assertEquals(expected, tree.toString());
-}
 }

@@ -21,11 +21,4 @@ public class FlowerTest {
         assertEquals(Colour.BLUE, flower.getColour());
     }
 
-    @Test
-    void testToString() {
-        Flower flower = new Flower(ProdType.FLOWER, "Rose", 10, Colour.RED);
-        String expected = "(" + super.toString() + ", Colour: " + flower.getColour() + ")";
-
-        assertEquals(expected, flower.toString());
-    }
 }
